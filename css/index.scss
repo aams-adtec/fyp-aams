@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Work+Sans:300,400&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+.f-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.f-worksans {
+  font-family: "Work Sans", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+
+  div.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 13, 43, 0.36);
+  }
+}
+
+.hero {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: white;
+
+  background-color: transparent;
+
+  .container {
+    .row:nth-child(1) {
+      margin-top: 8vh;
+      margin-bottom: 4vh;
+
+      .logo {
+        height: 200px;
+        max-height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+
+      .logo-ksm {
+        background-image: url("../img/logo-ksm.svg");
+      }
+
+      .logo-adtec {
+        background-image: url("../img/logo-adtec.svg");
+      }
+    }
+
+    .row:nth-child(2) {
+      .intro-info {
+        background-color: rgba(255,255,255,0.4);
+        padding: 18px;
+        color: #333;
+
+        .address {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .row:nth-child(3) {
+      margin-top: 4vh;
+
+      .btn-start {
+        color: white;
+        text-transform: uppercase;
+        font-weight: lighter;
+        padding: 10px 56px;
+        border: white 1px solid;
+
+        &:hover {
+          background-color: rgba(255,255,255,0.3);
+        }
+      }
+    }
+  }
+}
