@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Work+Sans:300,400&display=swap');
+@import url('core.css');
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #e2e2e2;
+  color: #333;
+  height: 100vh;
+}
+
+.auth {
+
+  .main-container {
+    background-color: white;
+
+    .logo {
+      div {
+        padding: 1em;
+        margin: 0.3em;
+
+        .logo {
+          max-width: 350px;
+          height: auto;
+        }
+      }
+    }
+
+    .content-visible {
+      display: block !important;
+    }
+
+    .content {
+      display: none;
+      padding: 1rem;
+
+      .login-form {
+        margin-top: 2em;
+      }
+    }
+  }
+}

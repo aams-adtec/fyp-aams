@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/account.css">
+    <title>Login & Register - AAMS</title>
+</head>
+<body>
+<div class="container-fluid auth d-flex flex-column h-100">
+    <div class="row flex-fill d-flex justify-content-start">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 main-container">
+            <div class="row logo">
+                <div class="col-12 text-center">
+                    <img src="img/logo-adtec.svg" class="img logo"/>
+                </div>
+            </div>
+            <hr/>
+            <div class="content page-login">
+                <div class="text-center">
+                    <h3 class="font-weight-lighter text-uppercase">
+                        Login
+                    </h3>
+                    <p>
+                        Please enter your login credentials to proceed.
+                    </p>
+                </div>
+                <div class="login-form f-worksans">
+                    <form>
+                        <div class="form-group">
+                            <label for="login-email">Email address: </label>
+                            <input type="email" class="form-control form-control-sm" id="login-email"
+                                   placeholder="Your email address...">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-pass">Password: </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-sm" id="login-pass"
+                                       placeholder="Your password here..." aria-describedby="login-pass-show">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary btn-sm" type="button" id="login-pass-show">Show</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="login-save">
+                            <label for="login-save" class="form-check-label">Remember my login</label>
+                        </div>
+                        <br/>
+                        <input type="submit" class="btn btn-primary" value="Login"/>
+                        <input type="reset" class="btn btn-secondary" value="Clear"/>
+                    </form>
+                </div>
+                <div class="text-center p-1 mt-4">
+                    <a href="#" id="nav-register" class="btn btn-sm btn-link">I want to register!</a>
+                </div>
+            </div>
+            <div class="content page-signup">
+                <div class="text-center">
+                    <h3 class="font-weight-lighter text-uppercase">
+                        Register
+                    </h3>
+                    <p>
+                        Register for your new Alumni account.
+                    </p>
+                </div>
+                <div class="login-form f-worksans">
+                    <form>
+                        <div class="form-group">
+                            <label for="reg-name">Full name:</label>
+                            <input type="text" class="form-control form-control-sm" id="reg-name"
+                                   placeholder="Your full name here..."/>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-ic">IC number:</label>
+                            <input type="text" class="form-control form-control-sm" id="reg-ic"
+                                   placeholder="Your IC number here..."/>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-dob">Date of birth: </label>
+                            <input type="date" class="form-control form-control-sm" id="reg-dob"
+                                   placeholder="Your date of birth here..."/>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-gender">Gender: </label>
+                            <select class="form-control" id="reg-gender">
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">Email address: </label>
+                            <input id="reg-email" class="form-control form-control-sm" type="email"
+                                   aria-describedby="reg-email-help" placeholder="Your email address here..."/>
+                            <small id="reg-email-help" class="form-text text-muted">This is the email address you use
+                                for login.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-pass">Password: </label>
+                            <input id="reg-pass" class="form-control form-control-sm" type="password"
+                                   aria-describedby="reg-pass-help" placeholder="Your password here..."/>
+                            <small id="reg-pass-help" class="form-text text-muted">This is the password you use for
+                                login.
+                            </small>
+                        </div>
+                        <br/>
+                        <input type="submit" class="btn btn-primary" value="Register"/>
+                        <input type="reset" class="btn btn-secondary" value="Clear"/>
+                    </form>
+                </div>
+                <div class="text-center p-1 mt-4">
+                    <a href="#" id="nav-login" class="btn btn-sm btn-link">I want to log in!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    function _1(selector) {
+        return document.querySelector(selector);
+    }
+
+    function _n(selector) {
+        return document.querySelectorAll(selector);
+    }
+
+    function switchPage(content1, content2) {
+        let c1 = _1(content1);
+        let c2 = _1(content2);
+
+        c1.classList.remove("content-visible");
+        c2.classList.add("content-visible");
+    }
+
+    function boot() {
+
+        let forms = _n("form");
+        let firstContent = _1(".auth .content");
+        firstContent.classList.add("content-visible");
+
+        let link_register = _1("#nav-register"),
+            link_login = _1("#nav-login"),
+            btn_showpass = _1("#login-pass-show"),
+            txt_pass = _1("#login-pass");
+
+        forms.forEach((form) => {
+            form.onsubmit = (e) => {
+                e.preventDefault();
+                return;
+            };
+        });
+
+        link_register.onclick = (e) => {
+            switchPage(".page-login", ".page-signup");
+            return;
+        };
+
+        link_login.onclick = (e) => {
+            switchPage(".page-signup", ".page-login");
+            return;
+        }
+
+        btn_showpass.onclick = (e) => {
+            let vals = [];
+            if (e.target.innerText === "Show") {
+                vals = ["text", "Hide"];
+            } else {
+                vals = ["password", "Show"];
+            }
+
+            e.target.innerText = vals[1];
+            txt_pass.setAttribute("type", vals[0]);
+        }
+    }
+
+    window.onload = boot;
+</script>
+</body>
+</html>
