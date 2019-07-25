@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Work+Sans:300,400&display=swap");
+@import url("core.css");
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #e2e2e2;
+  color: #333;
+  height: 100vh;
+}
+
+.regis .main-container {
+  background-color: white;
+}
+.regis .main-container .greeting {
+  margin: 0;
+  padding: 1em;
+  text-align: center !important;
+  margin-top: 2em;
+}
+.regis .main-container .greeting > .text-center {
+  width: 100%;
+}
+.regis .main-container .greeting > .text-center > p {
+  margin-top: 2em;
+  font-size: 0.9rem;
+  text-align: center;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+.regis .main-container .profile {
+  margin-top: 1em;
+}
+.regis .main-container .profile h5 {
+  letter-spacing: -1px;
+  font-weight: lighter !important;
+}
+.regis .main-container .profile > .row:nth-child(1) input[type=file] {
+  height: auto;
+  padding: 0.75rem 0.75rem;
+}
+.regis .main-container .profile > .row:nth-child(2) {
+  margin-top: 2em;
+}
+.regis .main-container .profile > .row:nth-child(2) form {
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+.regis .main-container .profile > .row:nth-child(2) form .employment {
+  margin-top: 1.25em;
+}
+.regis .main-container .profile > .row:nth-child(2) form .buttons {
+  margin-top: 2em;
+}
+
+/*# sourceMappingURL=registration.css.map */

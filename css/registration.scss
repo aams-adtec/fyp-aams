@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Work+Sans:300,400&display=swap');
+@import url('core.css');
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #e2e2e2;
+  color: #333;
+  height: 100vh;
+}
+
+.regis {
+  .main-container {
+    background-color: white;
+
+    .greeting {
+      margin: 0;
+      padding: 1em;
+      text-align: center !important;
+
+      margin-top: 2em;
+
+      > .text-center {
+        width: 100%;
+
+        > p {
+          margin-top: 2em;
+          font-size: 0.9rem;
+          text-align: center;
+
+          padding-left: 15%;
+          padding-right: 15%;
+        }
+      }
+    }
+
+    .profile {
+      margin-top: 1em;
+
+      h5 {
+        letter-spacing: -1px;
+        font-weight: lighter !important;
+      }
+
+      > .row:nth-child(1) {
+        input[type="file"] {
+          height: auto;
+          padding: 0.75rem 0.75rem;
+        }
+      }
+
+      > .row:nth-child(2) {
+        margin-top: 2em;
+
+        form {
+          margin-top: 1em;
+          margin-bottom: 3em;
+          .employment {
+            margin-top: 1.25em;
+          }
+
+          .buttons {
+            margin-top: 2em;
+          }
+        }
+      }
+    }
+  }
+}
