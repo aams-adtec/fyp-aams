@@ -28,6 +28,11 @@ body div.bg {
   color: white;
   background-color: transparent;
 }
+.hero .login-link {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 .hero .container .row:nth-child(1) {
   margin-top: 8vh;
   margin-bottom: 4vh;
@@ -65,6 +70,26 @@ body div.bg {
 }
 .hero .container .row:nth-child(3) .btn-start:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  display: block;
+  content: " ";
+  width: 100vw;
+  z-index: 999;
+  font-size: 0.8rem;
+  color: white;
+  text-transform: uppercase;
+  padding: 0.15em 1em;
+}
+.bottom-bar > a {
+  color: #aaa;
+}
+.bottom-bar > a:hover {
+  color: white;
 }
 
 /*# sourceMappingURL=index.css.map */

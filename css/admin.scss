@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Work+Sans:300,400&display=swap');
+@import url('core.css');
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background-color: white;
+  color: #333;
+  height: 100vh;
+}
+
+.main-container {
+  .greeting {
+    margin-top: 2em;
+  }
+
+  .content {
+
+    padding: 0.5em;
+
+    .accordion {
+      width: 100%;
+    }
+  }
+}
+
+#modal-details {
+  .modal-body {
+    .details-field {
+      h5 {
+        font-family: "Work Sans";
+        font-weight: bold;
+      }
+      p {
+        font-family: "Montserrat";
+      }
+    }
+  }
+}

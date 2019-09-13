@@ -31,7 +31,6 @@ body {
 }
 .regis .main-container .profile h5 {
   letter-spacing: -1px;
-  font-weight: lighter !important;
 }
 .regis .main-container .profile > .row:nth-child(1) input[type=file] {
   height: auto;
