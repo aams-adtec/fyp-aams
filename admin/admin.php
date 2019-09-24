@@ -56,8 +56,132 @@ if (!isset($_SESSION["admin"])) {
                                 </button>
                             </h3>
                         </div>
-                        <div id="content-alumnis" class="collapse" aria-labelledby="header-alumnis" data-parent="#controlpanel">
+                        <div id="content-alumnis" class="collapse show" aria-labelledby="header-alumnis" data-parent="#controlpanel">
                             <div class="card-body">
+
+                                <div class="tools-alumnis">
+                                    <form id="tools-form">
+                                        <h6 class="mb-3 font-weight-bolder text-muted text-uppercase">Add new Alumni</h6>
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 mb-1 mb-md-0">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="tools-lbl-name">Full Name</span>
+                                                    </div>
+                                                    <input data-prop="fullname" type="text" id="tools-name" class="form-control form-control-sm" aria-describedby="#tools-lbl-name" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-3 mb-1 mb-md-0">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-ic">IC No.</span>
+                                                    </div>
+                                                    <input data-prop="ic" type="text" aria-describedby="#tools-lbl-ic" class="form-control form-control-sm"
+                                                           id="tools-ic">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-3 mb-1 mb-md-0">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-gender">Gender</span>
+                                                    </div>
+                                                    <select data-prop="gender" class="form-control form-control-sm" id="tools-gender" aria-describedby="#tools-lbl-ic">
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-12 col-md-3 mb-1 mb-md-0">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-dob">Date of Birth</span></div>
+                                                    <input data-prop="dob" type="date" aria-describedby="#tools-lbl-dob"
+                                                           class="form-control form-control-sm" id="tools-dob">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-3 mb-1 mb-md-0">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-session">Session</span>
+                                                    </div>
+                                                    <input data-prop="session" type="text" aria-describedby="#tools-lbl-session"
+                                                           class="form-control form-control-sm" id="tools-session">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-3 mb-1 mb-md-0">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-ndp">NDP</span>
+                                                    </div>
+                                                    <input data-prop="ndp" type="text" aria-describedby="#tools-lbl-ndp"
+                                                           class="form-control form-control-sm" id="tools-ndp">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-3 mb-1 mb-md-0">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-contact">Contact No.</span>
+                                                    </div>
+                                                    <input data-prop="contact" type="text" aria-describedby="#tools-lbl-contact"
+                                                           class="form-control form-control-sm" id="tools-contact">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-12 mb-md-0 mb-1">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-address">Address</span>
+                                                    </div>
+                                                    <textarea data-prop="address" name="tools-address" id="tools-address"
+                                                              class="form-control form-control-sm"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-12 col-md-1 mb-md-0 mb-1">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input data-prop="working" type="checkbox" class="custom-control-input" id="tools-working" checked="true" data-target="employed">
+                                                    <label class="custom-control-label" for="tools-working">Working</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-3 mb-md-0 mb-1">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-salary">Salary</span>
+                                                    </div>
+                                                    <input data-prop="salary" type="number" min="0" aria-describedby="#tools-lbl-salary"
+                                                           class="form-control form-control-sm" id="tools-salary">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-3 mb-md-0 mb-1">
+                                                <div class="input-group input-group-sm">
+                                                    <div  class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-occupation">Occupation</span>
+                                                    </div>
+                                                    <input data-prop="occupation" type="text" aria-describedby="#tools-lbl-occupation"
+                                                           class="form-control form-control-sm" id="tools-occupation">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-5 mb-md-0 mb-1">
+                                                <div class="input-group input-group-sm">
+                                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                                           id="tools-lbl-company">Company Address:</span>
+                                                    </div>
+                                                    <textarea data-prop="company" name="tools-company" id="tools-company"
+                                                              class="form-control form-control-sm"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-sm btn-primary">Add</button>
+                                            <button type="reset" class="btn btn-sm btn-secondary">Clear</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <hr />
                                 <div class="table-responsive-md">
                                     <table id="table-alumnis" class="table table-bordered">
                                         <thead class="thead-dark">
@@ -136,6 +260,17 @@ if (!isset($_SESSION["admin"])) {
                         <p></p>
                     </div>
                 </div>
+
+                <div class="details-templogin hide">
+                    <div class="details-field details-temail">
+                        <h5>Temporary Email Address:</h5>
+                        <p></p>
+                    </div>
+                    <div class="details-field details-tpass">
+                        <h5>Temporary Login Pass:</h5>
+                        <p></p>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -165,9 +300,18 @@ if (!isset($_SESSION["admin"])) {
             modal.find(".details-company > p").html(detail.company);
         }
 
+        if (!(!detail.temp)) {
+            modal.find(".details-templogin").removeClass("hide");
+            modal.find(".details-temail > p").html(detail.temp.email);
+            modal.find(".details-tpass > p").html(detail.temp.pass);
+        } else {
+            modal.find(".details-templogin").addClass("hide");
+            modal.find(".details-temail > p").html("none");
+            modal.find(".details-tpass > p").html("none");
+        }
+
         modal.modal('show');
     }
-
     async function preloadAlumni() {
         let payload = new FormData();
         let tbody = _1("table#table-alumnis tbody");
@@ -177,9 +321,11 @@ if (!isset($_SESSION["admin"])) {
 
         for (let alumni of results.result) {
             alumnis[`a-${alumni.id}`] = alumni;
+
             let row = document.createElement("tr");
             row.classList.add("alumni-row");
             row.setAttribute("data-id", alumni.id);
+
             let row_html = `
                 <td>${alumni.name}</td>
                     <td>${alumni.ic}</td>
@@ -192,6 +338,7 @@ if (!isset($_SESSION["admin"])) {
                         <button class="btn btn-sm btn-secondary alumni-delete">Delete</button>
                     </td>
             `;
+
             row.innerHTML = row_html.trim();
             row.querySelectorAll("td:not(:last-child)").forEach((td) => {
                td.onclick = (e) => {
@@ -247,8 +394,63 @@ if (!isset($_SESSION["admin"])) {
         })
     }
 
+    function setupNewAlumniSubmission() {
+        let form = _1("#tools-form");
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+
+            let inputs = _n("input, textarea, select");
+            let payload = new FormData();
+            for (let input of inputs) {
+                let prop = input.getAttribute("data-prop");
+                let value;
+
+                if (input.tagName.toLowerCase() === "input") {
+                    let type = input.getAttribute("type");
+                    switch (type) {
+                        case "text":
+                        case "number":
+                        case "date":
+                            value = input.value;
+                            break;
+                        case "checkbox":
+                            value = input.checked;
+                            break;
+                        default:
+                            value = null;
+                            break;
+                    }
+                } else  {
+                    value = input.value;
+                }
+                payload.append(prop, value);
+            }
+            payload.append("action", "insert");
+
+            $("input, textarea, select, button").attr("disabled", "disabled");
+            let results = await (await fetch("action-alumni.php", {body: payload, method: 'POST'})).json();
+            $("input, textarea, select, button").removeAttr("disabled");
+
+            switch (results.status) {
+                case "success":
+                    $("#tools-form button[type='reset']").click();
+                    $("#tools-name").focus();
+                    preloadAlumni();
+                    break;
+                case "failed":
+                    alert(`Fail to add new alumni! Reason: ${results.reason}`);
+                    break;
+                case "error":
+                default:
+                    alert("Error while adding new alumni");
+                    break;
+            }
+        }
+    }
+
     function boot() {
         preloadAlumni();
+        setupNewAlumniSubmission();
     }
 
     window.onload = boot;

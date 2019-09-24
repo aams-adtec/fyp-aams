@@ -1,5 +1,7 @@
 <?php
 include_once "../system/database.php";
+include_once "../system/util.php";
+
 session_start();
 
 function retrieveAlumniList() {
@@ -9,7 +11,7 @@ function retrieveAlumniList() {
     $limit = !($limit == "") ? $limit : "10";
     $offset = !($offset == "") ? $offset : "0";
 
-    $results = $db->query("SELECT id, fullname, ic, dob, gender, session, ndp, contactno, address, employed, occupation, salary, companyaddress FROM alumni LIMIT $limit OFFSET $offset;");
+    $results = $db->query("SELECT id, user, pass, fullname, ic, dob, gender, session, ndp, contactno, address, employed, occupation, salary, companyaddress, creation FROM alumni LIMIT $limit OFFSET $offset;");
 
     $items = [];
 
@@ -33,6 +35,12 @@ function retrieveAlumniList() {
         $item->occu = $alumni['occupation'];
         $item->salary = $alumni['salary'];
         $item->company = $alumni['companyaddress'];
+
+        if ($alumni['creation'] === "admin") {
+            $item->temp = new stdClass();
+            $item->temp->email = $alumni['user'];
+            $item->temp->pass = $alumni['pass'];
+        }
 
         array_push($items, $item);
     }
@@ -58,6 +66,37 @@ function deleteAlumni() {
     }
 }
 
+function insertAlumni() {
+    global $db;
+    $fullname = post("fullname");
+    $ic = post("ic");
+    $gender = post("gender");
+    $dob = post("dob");
+    $session = post("session");
+    $ndp = post("ndp");
+    $contact = post("contact");
+    $address = post("address");
+    $working = post("working");
+    $salary = post("salary");
+    $occupation = post("occupation");
+    $company = post("company");
+
+    $userid = bin2hex(random_bytes(12));
+    $emailId = randStr(8) . "@temporary";
+    $password = randStr(10);
+
+    $query = "INSERT INTO alumni (id, user, pass, fullname, ic, dob, gender, session, ndp, contactno, address, employed, occupation, salary, companyaddress, creation)
+                          VALUES ('$userid', '$emailId', '$password', '$fullname', '$ic', '$dob', '$gender', '$session', '$ndp', 
+                                  '$contact', '$address', '$working', '$occupation', '$salary', '$company', 'admin')";
+    $results = $db->query($query);
+
+    if ($results) {
+        echo json_encode(['status'=>'success', 'result'=>['tempuser'=>$emailId, 'temppass'=>$password]]);
+    } else {
+        echo json_encode(['status'=>'failed', 'reason'=>$db->error]);
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = (isset($_POST['action']) ? $_POST['action'] : "retrieve");
 
@@ -67,6 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         case "delete":
             deleteAlumni();
+            break;
+        case "insert":
+            insertAlumni();
             break;
         default:
             break;

@@ -121,7 +121,7 @@ handleLocaleChange("account.php");
                         </div>
                         <br/>
                         <input type="submit" class="btn btn-primary" value="<?php lc("reg-submit") ?>"/>
-                        <input type="reset" class="btn btn-secondary" value="<?php lc("reg-submit") ?>"/>
+                        <input type="reset" class="btn btn-secondary" value="<?php lc("reg-reset") ?>"/>
                     </form>
                 </div>
                 <div class="text-center p-1 mt-4">

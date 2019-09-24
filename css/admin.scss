@@ -14,11 +14,15 @@ body {
   }
 
   .content {
-
     padding: 0.5em;
 
     .accordion {
       width: 100%;
+    }
+
+    .tools-alumnis {
+      background-color: #f7f7f7;
+      padding: 1em;
     }
   }
 }
