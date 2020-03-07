@@ -11,12 +11,12 @@ function retrieveAlumniList() {
     $limit = !($limit == "") ? $limit : "10";
     $offset = !($offset == "") ? $offset : "0";
 
-    $results = $db->query("SELECT id, user, pass, fullname, ic, dob, gender, session, ndp, contactno, address, employed, occupation, salary, companyaddress, creation FROM alumni LIMIT $limit OFFSET $offset;");
+    $results = $db->query("SELECT id, user, pass, fullname, ic, dob, gender, session, ndp, contactno, address, employed, occupation, salary, companyaddress, creation FROM alumni;"); //" LIMIT $limit OFFSET $offset;");
 
     $items = [];
 
     if (!$results) {
-        echo json_encode(['status'=>'error']);
+        echo json_encode(['status'=>'error', 'error'=>$db->error]);
         exit();
     }
 

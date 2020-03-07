@@ -186,12 +186,10 @@ if (!isset($_SESSION["admin"])) {
                                     <table id="table-alumnis" class="table table-bordered">
                                         <thead class="thead-dark">
                                         <tr>
+                                            <td>#</td>
                                             <td>Name</td>
-                                            <td>IC</td>
-                                            <td>Date of Birth</td>
                                             <td>Session</td>
                                             <td>NDP</td>
-                                            <td>Contact No</td>
                                             <td>Action</td>
                                         </tr>
                                         </thead>
@@ -319,7 +317,9 @@ if (!isset($_SESSION["admin"])) {
         let results = await (await fetch("action-alumni.php", {method: "POST"})).json();
         tbody.innerHTML = "";
 
+        let count = 0;
         for (let alumni of results.result) {
+            count++;
             alumnis[`a-${alumni.id}`] = alumni;
 
             let row = document.createElement("tr");
@@ -327,15 +327,14 @@ if (!isset($_SESSION["admin"])) {
             row.setAttribute("data-id", alumni.id);
 
             let row_html = `
-                <td>${alumni.name}</td>
-                    <td>${alumni.ic}</td>
-                    <td>${alumni.dob}</td>
+                    <td>${count}</td>
+                    <td>${alumni.name}</td>
                     <td>${alumni.sess}</td>
                     <td>${alumni.ndp}</td>
-                    <td>${alumni.contact}</td>
                     <td>
                         <button class="btn btn-sm btn-primary alumni-details">Details</button>
                         <button class="btn btn-sm btn-secondary alumni-delete">Delete</button>
+                        <a href="../profile.php?alumni=${alumni.id}" class="btn btn-sm btn-success">View Alumni</a>
                     </td>
             `;
 

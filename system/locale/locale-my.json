@@ -14,6 +14,7 @@
     "login-email-pc": "Alamat emel anda di sini...",
     "login-pass": "Kata laluan: ",
     "login-pass-pc": "Kata laluan anda di sini...",
+    "login-pass-title": "Kata laluan anda mestilah mempunyai sekurang-kurangnya 1 huruf besar, 1 huruf kecil dan 1 nombor.",
     "login-pass-show": "Tunjukkan",
     "login-pass-hide": "Sorokkan",
     "login-remember": "Ingat sesi saya",
@@ -26,6 +27,7 @@
     "reg-fullname-pc": "Nama penuh anda di sini...",
     "reg-ic": "Nombor Kad Pengenalan:",
     "reg-ic-pc": "Nombor kad pengenalan anda di sini...",
+    "reg-ic-title": "Sila masukkan nombor IC dengan format yang betul (termasuk tanda '-')",
     "reg-dob": "Tarikh lahir:",
     "reg-dob-pc": "Tarikh lahir anda di sini...",
     "reg-gender": "Jantina: ",
@@ -66,6 +68,7 @@
     "greet2": "Ini adalah profil anda. Anda boleh mengubah maklumat-maklumat tentang anda di sini!",
     "header1": "Kemaskini maklumat peribadi",
     "header2": "Kemaskini maklumat majikan",
-    "submit": "Kemaskini"
+    "submit": "Kemaskini",
+    "return": "Kembali"
   }
 }

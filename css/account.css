@@ -7,6 +7,10 @@ body {
   height: 100vh;
 }
 
+.req {
+  color: red;
+}
+
 .auth .main-container {
   background-color: white;
 }

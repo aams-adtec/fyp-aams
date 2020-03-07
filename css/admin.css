@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Work+Sans:300,400&display=swap");
+@import url("core.css");
+body {
+  font-family: "Work Sans", sans-serif;
+  background-color: white;
+  color: #333;
+  height: 100vh;
+}
+
+.main-container .greeting {
+  margin-top: 2em;
+}
+.main-container .content {
+  padding: 0.5em;
+}
+.main-container .content .accordion {
+  width: 100%;
+}
+.main-container .content .tools-alumnis {
+  background-color: #f7f7f7;
+  padding: 1em;
+}
+
+#modal-details .modal-body .details-field h5 {
+  font-family: "Work Sans";
+  font-weight: bold;
+}
+#modal-details .modal-body .details-field p {
+  font-family: "Montserrat";
+}
+
+/*# sourceMappingURL=admin.css.map */

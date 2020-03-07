@@ -16,7 +16,20 @@ function compressImage($source, $destination, $quality) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_SESSION["session"]["user"]["id"];
+    $mode = post("mode");
+    $id = ($mode == "user" ? $_SESSION["registration"]["user"]["id"] : post("id"));
+
+    if (isset($_FILES['dp'])) {
+        $f_image = $_FILES['dp'];
+        $fname = $f_image['name'];
+        if (in_array(strtolower(pathinfo($fname, PATHINFO_EXTENSION)), $image_ext)) {
+            $destination = "../img/" . substr($id, 0, 12) . ".jpg";
+            compressImage($f_image['tmp_name'], $destination, 60);
+        } else {
+            echo json_encode(['status'=>'failed', 'reason'=>'Unsupported image format!']);
+        }
+    }
+
     $fullname = post("fullname");
     $ic = post("ic");
     $dob = post("dob");

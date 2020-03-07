@@ -44,4 +44,29 @@ body {
       padding: 1em;
     }
   }
+
+  .table-preview {
+    & table {
+      max-width: 400px;
+      font-size: 0.85rem;
+
+      & td:nth-child(1) {
+        padding-right: 1em;
+      }
+    }
+  }
+
+  .field-info {
+    label {
+      color: #999;
+      font-size: 90%;
+    }
+
+    h6 {
+      padding-left: 0.5em;
+      font-weight: bolder;
+    }
+
+    margin-bottom: 1em;
+  }
 }

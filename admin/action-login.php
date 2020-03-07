@@ -4,8 +4,8 @@ $accounts = json_decode(file_get_contents(__DIR__ . "/admin-accounts.json"), tru
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = esc(filter_input(INPUT_POST, "u"));
-    $password = esc(filter_input(INPUT_POST, "p"));
+    $username = filter_input(INPUT_POST, "u");
+    $password = filter_input(INPUT_POST, "p");
 
     if (isset($accounts[$username])) {
         if ($accounts[$username]["pass"] == $password) {
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo json_encode(['status'=>'failed', 'reason'=>'Admin password mismatch!']);
         }
     } else {
-        echo json_encode(['status'=>'failed', 'reason'=>'Admin ID not found!']);
+        echo json_encode(['status'=>'failed', 'reason'=>'Admin ID not found!', 'info'=>[$username, $password]]);
     }
 }
 ?>

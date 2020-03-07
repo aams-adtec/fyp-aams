@@ -4,10 +4,29 @@ include_once "system/locale.php";
 
 session_start();
 setDefaultPage("profile");
-handleLocaleChange("profile.php");
+handleLocaleChange("edit-profile.php");
 
-if (!isset($_SESSION['session'])) { header("Location: index.php"); exit(); }
-$user = $_SESSION['session']['user'];
+if (!isset($_SESSION['admin'])) {
+    if (!isset($_SESSION['session'])) {
+        header("Location: index.php");
+        exit();
+    }
+}
+$user;
+$update_query = "";
+$mode;
+$tid = "none";
+
+if (!isset($_SESSION['admin'])) {
+    $user = $_SESSION['session']['user'];
+    $mode = "user";
+} else {
+    $alumni_id = filter_input(INPUT_GET, "alumni");
+    $user = $db->query("SELECT * FROM alumni WHERE id='$alumni_id'")->fetch_assoc();
+    $update_query = "?alumni=$alumni_id";
+    $mode = "admin";
+    $tid = $alumni_id;
+}
 $name = uesc($user['fullname']);
 $dp_path = "img/" . substr($user['id'], 0, 12) . ".jpg";
 $dp_path = (file_exists($dp_path) ? $dp_path : "img/img-profile.svg");
@@ -130,6 +149,7 @@ $dp_path = (file_exists($dp_path) ? $dp_path : "img/img-profile.svg");
                 </div>
                 <div class="col-12 text-center mt-4">
                     <button class="btn btn-primary" id="btn-update"><?php lc("submit") ?></button>
+                    <a href="profile.php" class="btn btn-secondary"><?php lc("return") ?></a>
                 </div>
             </div>
         </div>
@@ -142,13 +162,33 @@ $dp_path = (file_exists($dp_path) ? $dp_path : "img/img-profile.svg");
 <script src="js/core.js"></script>
 <script>
     function txt(selector) {if (_1(selector).type == "checkbox") return _1(selector).checked; else return _1(selector).value;}
+    let img_file = null;
 
     function boot() {
-        let btn_update = _1("#btn-update");
+        let btn_update = _1("#btn-update"),
+            img_profile = _1("img.profile-pic");
+
+        img_profile.onclick = async (e) => {
+            let file_input = document.createElement("input");
+            file_input.type = "file";
+            file_input.accept = "image/*";
+            file_input.onchange = () => {
+                img_file = file_input.files[0];
+                let reader = new FileReader();
+                reader.onloadend = (ev) => {
+                    img_profile.src = reader.result;
+                }
+                reader.readAsDataURL(file_input.files[0]);
+            };
+
+            file_input.click();
+        }
 
         btn_update.onclick = async (e) => {
             let inputs = _n("input, textarea");
             let payload = new FormData();
+            payload.append("mode", "<?=$mode?>");
+            payload.append("id", "<?=$tid?>");
 
             inputs.forEach((input) => {
                let target = input.getAttribute("data-target");
@@ -156,13 +196,17 @@ $dp_path = (file_exists($dp_path) ? $dp_path : "img/img-profile.svg");
                payload.append(target, value);
             });
 
+            if (img_file !== null) {
+                payload.append("dp", img_file);
+            }
+
             _n("input, textarea").forEach((n)=>{n.setAttribute("disabled", "disabled")});
             let results = await (await fetch("endpoint/update-alumni.php", {body: payload, method: "POST"})).json();
             _n("input, textarea").forEach((n)=>{n.removeAttribute("disabled")});
 
             switch (results.status) {
                 case "success":
-
+                    window.location.replace("profile.php<?=$update_query?>");
                     break;
                 case "failed":
                     alert(results.reason);

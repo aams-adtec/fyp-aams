@@ -60,19 +60,22 @@ $fullname = uesc($_SESSION["registration"]["user"]['fullname']);
                             <div class="form-group row">
                                 <label for="prof-session" class="col-sm-3 col-form-label"><?php lc("step2-sess"); ?></label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="prof-session" class="form-control" placeholder="<?php lc("step2-sess-pc") ?>" />
+                                    <input type="text" id="prof-session" class="form-control" placeholder="<?php lc("step2-sess-pc") ?>"
+                                    required/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="prof-class" class="col-sm-3 col-form-label"><?php lc("step2-ndp") ?></label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="prof-class" class="form-control" placeholder="<?php lc("step2-ndp-pc") ?>" />
+                                    <input type="text" id="prof-class" class="form-control" placeholder="<?php lc("step2-ndp-pc") ?>"
+                                    required pattern="\d*"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="prof-phone" class="col-sm-3 col-form-label"><?php lc("step2-contact") ?></label>
                                 <div class="col-sm-9">
-                                    <input type="tel" id="prof-phone" class="form-control" placeholder="<?php lc("step2-contact-pc") ?>" />
+                                    <input type="tel" id="prof-phone" class="form-control" placeholder="<?php lc("step2-contact-pc") ?>"
+                                    required pattern="\d*"/>
                                 </div>
                             </div>
                             <div class="form-group">

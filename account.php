@@ -3,7 +3,7 @@ include_once "system/locale.php";
 session_start();
 
 if (isset($_SESSION["session"])) {
-    header("Location: profile.php");
+    header("Location: edit-profile.php");
     exit();
 }
 
@@ -41,15 +41,15 @@ handleLocaleChange("account.php");
                 <div class="login-form f-worksans">
                     <form>
                         <div class="form-group">
-                            <label for="login-email"><?php lc("login-email"); ?> </label>
+                            <label for="login-email"><?php lc("login-email"); ?><span class="req">*</span></label>
                             <input type="email" class="form-control form-control-sm" id="login-email"
-                                   placeholder="<?php lc("login-email-pc"); ?>">
+                                   placeholder="<?php lc("login-email-pc"); ?>" required>
                         </div>
                         <div class="form-group">
-                            <label for="login-pass"><?php lc("login-pass"); ?></label>
+                            <label for="login-pass"><?php lc("login-pass"); ?><span class="req">*</span></label>
                             <div class="input-group">
                                 <input type="password" class="form-control form-control-sm" id="login-pass"
-                                       placeholder="<?php lc("login-pass-pc"); ?>" aria-describedby="login-pass-show">
+                                       placeholder="<?php lc("login-pass-pc"); ?>" aria-describedby="login-pass-show" required>
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary btn-sm" type="button" id="login-pass-show">
                                         <?php lc("login-pass-show"); ?>
@@ -82,14 +82,14 @@ handleLocaleChange("account.php");
                 <div class="login-form f-worksans">
                     <form>
                         <div class="form-group">
-                            <label for="reg-name"><?php lc("reg-fullname") ?></label>
+                            <label for="reg-name"><?php lc("reg-fullname") ?><span class="req">*</span></label>
                             <input type="text" class="form-control form-control-sm" id="reg-name"
-                                   placeholder="<?php lc("reg-fullname-pc") ?>"/>
+                                   placeholder="<?php lc("reg-fullname-pc") ?>" required/>
                         </div>
                         <div class="form-group">
-                            <label for="reg-ic"><?php lc("reg-ic") ?></label>
+                            <label for="reg-ic"><?php lc("reg-ic") ?><span class="req">*</span></label>
                             <input type="text" class="form-control form-control-sm" id="reg-ic"
-                                   placeholder="<?php lc("reg-ic-pc") ?>"/>
+                                   placeholder="<?php lc("reg-ic-pc") ?>" required pattern="\d{6}-\d{2}-\d{4}$" title="<?php lc("reg-ic-title") ?>"/>
                         </div>
                         <div class="form-group">
                             <label for="reg-dob"><?php lc("reg-dob") ?></label>
@@ -104,17 +104,18 @@ handleLocaleChange("account.php");
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="reg-email"><?php lc("login-email") ?></label>
+                            <label for="reg-email"><?php lc("login-email") ?><span class="req">*</span></label>
                             <input id="reg-email" class="form-control form-control-sm" type="email"
-                                   aria-describedby="reg-email-help" placeholder="<?php lc("login-email-pc") ?>"/>
+                                   aria-describedby="reg-email-help" placeholder="<?php lc("login-email-pc") ?>" required/>
                             <small id="reg-email-help" class="form-text text-muted">
                                 <?php lc("reg-email-ht") ?>
                             </small>
                         </div>
                         <div class="form-group">
-                            <label for="reg-pass"><?php lc("login-pass") ?></label>
+                            <label for="reg-pass"><?php lc("login-pass") ?><span class="req">*</span></label>
                             <input id="reg-pass" class="form-control form-control-sm" type="password"
-                                   aria-describedby="reg-pass-help" placeholder="<?php lc("login-pass-pc") ?>"/>
+                                   aria-describedby="reg-pass-help" placeholder="<?php lc("login-pass-pc") ?>" required minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*"
+                                    title="<?php lc("login-pass-title"); ?>"/>
                             <small id="reg-pass-help" class="form-text text-muted">
                                 <?php lc("reg-pass-ht") ?>
                             </small>

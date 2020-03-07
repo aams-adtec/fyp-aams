@@ -14,6 +14,7 @@
     "login-email-pc": "Your email address...",
     "login-pass": "Password: ",
     "login-pass-pc": "Your password here...",
+    "login-pass-title": "Your password should contain at least 1 capital letter, 1 small letter, and 1 number",
     "login-pass-show": "Show",
     "login-pass-hide": "Hide",
     "login-remember": "Remember my login",
@@ -26,6 +27,7 @@
     "reg-fullname-pc": "Your full name here...",
     "reg-ic": "IC number:",
     "reg-ic-pc": "Your IC number here...",
+    "reg-ic-title": "Please insert the correct IC no. format (including the dash '-' symbol)",
     "reg-dob": "Date of birth:",
     "reg-dob-pc": "Your date of birth here...",
     "reg-gender": "Gender: ",
@@ -66,6 +68,7 @@
     "greet2": "Here's your profile. You can change the information here!",
     "header1": "Update your personal information",
     "header2": "Update your career information...",
-    "submit": "Update"
+    "submit": "Update",
+    "return": "Return"
   }
 }
